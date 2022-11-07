@@ -1,4 +1,4 @@
-# Speech Recognition
+# Natural Language Processing
 This repo is based on [spaCy](https://spacy.io/) by OpenAI and on [Stanza](https://stanfordnlp.github.io/stanza/) by Stanford NLP Group.
 
 ## Setup
