@@ -39,12 +39,6 @@ catkin_make
 Topics:
 
 ```
-/speech_recognition/final_result
-```
-
-and 
-
-```
 /conceptual_dependencies/final_result
 ```
 
