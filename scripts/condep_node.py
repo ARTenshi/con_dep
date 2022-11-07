@@ -7,7 +7,7 @@ import argparse
 #ROS
 import std_msgs.msg
 from std_srvs.srv import Empty
-from std_srvs.srv import EmptyResponse
+from conceptual_deps.msg import StringArray
 from ros_whisper_vosk.srv import GetSpeech
 
 import rospy
@@ -35,29 +35,36 @@ rospy.wait_for_service(service_name)
 speech_service = rospy.ServiceProxy(service_name, GetSpeech)   
 
 #Start ROS Publishers
-pub_final = rospy.Publisher('conceptual_dependencies/final_result',std_msgs.msg.String, queue_size=10)
+pub_final = rospy.Publisher('conceptual_dependencies/final_result', StringArray, queue_size=10)
 
 #Callbacks
 def callbackConDepNode(data):
 
+    _conceptual_deps = []
     speech_text = ""
     try:
         speech_text = speech_service().data
-    except:
-        speech_text = ""
 
+        #Generate final CDs List
+        _conceptual_deps.append("one")
+        _conceptual_deps.append("two")
+        _conceptual_deps.append("three")
+
+    except:
+        print("An error occurred!")
+
+    #Process text to CD
     if (is_stanza):
         print("Sample code with stanza")
     else:
         print("Sample code with spacy")
-
-    #Process text to CD
-    conceptual_deps = speech_text
-
     #########
 
+    conceptual_deps = StringArray(_conceptual_deps)
     print(conceptual_deps)
+
     pub_final.publish(conceptual_deps)
+
 
 #Main
 def main():

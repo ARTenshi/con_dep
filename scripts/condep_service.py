@@ -40,12 +40,13 @@ pub_final = rospy.Publisher('conceptual_dependencies/final_result', StringArray,
 #Callbacks
 def callbackConDepService(req):
 
-    conceptual_deps = ""
+    _conceptual_deps = []
     speech_text = ""
     try:
         speech_text = speech_service().data
     except:
         print("An error occurred!")
+        conceptual_deps = StringArray(_conceptual_deps)
         return conceptual_deps
 
     #Process text to CD
@@ -76,6 +77,7 @@ def callbackTextConDepService(req):
         print("You wrote: " + speech_text)
     except:
         print("An error occurred!")
+        conceptual_deps = StringArray(_conceptual_deps)
         return conceptual_deps
 
     #Process text to CD
