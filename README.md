@@ -42,8 +42,13 @@ Topics:
 /conceptual_dependencies/final_result
 ```
 
-of type `std_msgs/String`
+of type `conceptual_deps/StringArray`
 
+where StringArray.msg:
+
+```
+string[]  data
+```
 
 Services:
 
@@ -57,7 +62,7 @@ where GetConDep.srv:
 
 ```
 ---
-string  data
+StringArray  cds
 ```
 
 and 
@@ -73,7 +78,7 @@ where GetTextSpeech.srv:
 ```
 string text
 ---
-string  data
+StringArray  cds
 ```
 
 ### Initialization
