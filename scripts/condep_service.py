@@ -48,16 +48,16 @@ def callbackConDepService(req):
         print("An error occurred!")
         return conceptual_deps
 
+    #Process text to CD
     if (is_stanza):
         print("Sample code with stanza")
     else:
         print("Sample code with spacy")
 
-    #Process text to CD
+    #Generate final CDs List
     _conceptual_deps.append("one")
     _conceptual_deps.append("two")
     _conceptual_deps.append("three")
-
     #########
 
     conceptual_deps = StringArray(_conceptual_deps)
@@ -78,16 +78,16 @@ def callbackTextConDepService(req):
         print("An error occurred!")
         return conceptual_deps
 
+    #Process text to CD
     if (is_stanza):
         print("Sample code with stanza")
     else:
         print("Sample code with spacy")
 
-    #Process text to CD
+    #Generate final CDs List
     _conceptual_deps.append("one")
     _conceptual_deps.append("two")
     _conceptual_deps.append("three")
-
     #########
 
     conceptual_deps = StringArray(_conceptual_deps)
