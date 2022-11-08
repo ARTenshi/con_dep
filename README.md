@@ -18,7 +18,7 @@ Then, clone this repository into the src folder:
 
 ```
 cd ~/speech_ws/src
-git clone https://github.com/ARTenshi/speech_rec.git
+git clone https://github.com/ARTenshi/con_dep.git
 ```
 
 2. Run ```pip install -r requirements.txt```
