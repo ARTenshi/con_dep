@@ -36,7 +36,7 @@ catkin_make
 
 ### Structure
 
-Topics:
+**Topics**
 
 ```
 /conceptual_dependencies/final_result
@@ -50,7 +50,7 @@ where StringArray.msg:
 string[]  data
 ```
 
-Services:
+**Services**
 
 ```
 /conceptual_dependencies/condep_service
