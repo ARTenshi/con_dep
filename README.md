@@ -1,5 +1,5 @@
 # Natural Language Processing
-This repo is based on [spaCy](https://spacy.io/) by OpenAI and on [Stanza](https://stanfordnlp.github.io/stanza/) by Stanford NLP Group.
+This repo uses [spaCy](https://spacy.io/) by OpenAI and on [Stanza](https://stanfordnlp.github.io/stanza/) by Stanford NLP Group for syntactic structure of sentences.
 
 ## Setup
 
