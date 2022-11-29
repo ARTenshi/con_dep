@@ -10,6 +10,9 @@ from conceptual_deps.msg import StringArray
 from ros_whisper_vosk.srv import GetSpeech
 from conceptual_deps.srv import GetConDep, GetTextConDep
 
+from modules.condep_parser import CondepParser
+
+import pyttsx3
 import rospy
 import rospkg
 
@@ -50,18 +53,18 @@ def callbackConDepService(req):
         return conceptual_deps
 
     #Process text to CD
+    cds = []
     if (is_stanza):
-        print("Sample code with stanza")
+        print("Sample code with stanza. TBD")
     else:
-        print("Sample code with spacy")
+        engine = pyttsx3.init()
+        engine.say('You said'+speech_text,"tts_engine")
+        engine.runAndWait()
+        
+        cds = CondepParser(speech_text)
 
     #Generate final CDs List
-    _conceptual_deps.append("one")
-    _conceptual_deps.append("two")
-    _conceptual_deps.append("three")
-    #########
-
-    conceptual_deps = StringArray(_conceptual_deps)
+    conceptual_deps = StringArray(cds)
     print(conceptual_deps)
 
     pub_final.publish(conceptual_deps)
@@ -81,18 +84,18 @@ def callbackTextConDepService(req):
         return conceptual_deps
 
     #Process text to CD
+    cds = []
     if (is_stanza):
-        print("Sample code with stanza")
+        print("Sample code with stanza. TBD")
     else:
-        print("Sample code with spacy")
+        engine = pyttsx3.init()
+        engine.say('You said'+speech_text,"tts_engine")
+        engine.runAndWait()
+        
+        cds = CondepParser(speech_text)
 
     #Generate final CDs List
-    _conceptual_deps.append("one")
-    _conceptual_deps.append("two")
-    _conceptual_deps.append("three")
-    #########
-
-    conceptual_deps = StringArray(_conceptual_deps)
+    conceptual_deps = StringArray(cds)
     print(conceptual_deps)
 
     pub_final.publish(conceptual_deps)
