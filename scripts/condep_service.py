@@ -58,6 +58,10 @@ def callbackConDepService(req):
         print("Sample code with stanza. TBD")
     else:
         engine = pyttsx3.init()
+        #voices = engine.getProperty('voices')  #full list run a in terminal: espeak --voices
+        #engine.setProperty('voice',voices[11].id) #English (male)
+        engine.setProperty('voice', 'mb-en1') #English (female) ##full list (mbrola voices) run a in terminal: espeak --voices=mb
+        engine.setProperty("rate",128) #speed rate
         engine.say('You said'+speech_text,"tts_engine")
         engine.runAndWait()
         
@@ -89,6 +93,8 @@ def callbackTextConDepService(req):
         print("Sample code with stanza. TBD")
     else:
         engine = pyttsx3.init()
+        engine.setProperty('voice', 'mb-en1') #English (female)
+        engine.setProperty("rate",128)
         engine.say('You said'+speech_text,"tts_engine")
         engine.runAndWait()
         
