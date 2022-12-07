@@ -122,13 +122,13 @@ def CondepParser(text):
     #Sentences where "me" the recipient of the action, ex: give me ....
     #Check for the word me, which change the order of noun_list, so the word "me" is added
     #to the end of the list instead of the beggining
+        s = len(pron_list)-1
         for m in range(len(pron_list)):
-            if pron_list[m] == "me":
+            if pos_list[m] == ['PRON'] and m != s:
+                pron_b =  pron_list[m]
                 pron_list[m] = pron_list[m+1]
-                pron_list[m+1] = "me"
-                print(pron_list)
-                break
-    
+                pron_list[m+1] = pron_b
+
     #Sentences where her o him are included, ex: ... and give an apple to her
     #Check for the words "her" or "him" and replace them with the last PROPN
         for pron in range(len(pron_list)):
