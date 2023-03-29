@@ -218,8 +218,7 @@ def CondepParser(text):
                             elif len(pron_list_sen) !=0  and pron_list_sen[-1] not in ["an", "a", "the"]:
                                 obj = pron_list_sen[-1]
                                 dependencies_list.append(prim+'((ACTOR Robot)(OBJ '+obj+')(TO nil))')
-				#print(prim+'((ACTOR Robot)(OBJ '+obj+')(FROM '+obj+' place)(TO nil))')
-			elif:
+                            elif len(pron_list_sen) >1:
 				for ex in pron_list_sen:
 					chop_noun3 = ex.split()
 					len_noun4 = len(chop_noun3)
