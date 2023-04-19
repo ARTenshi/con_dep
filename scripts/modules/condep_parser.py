@@ -274,20 +274,17 @@ def CondepParser(text):
                             #print(prim+'((ACTOR Robot)(OBJ '+obj+'))')
                 
                 #==============================ATTEND=======================================
+                #ATTEND -----> [an object] / [a person]
                 elif prim == "ATTEND":
-                    #ATTEND -----> [an object] / [a person]
-                    if len(pron_list_sen) == 0:
-                        dependencies_list.append(prim+'((ACTOR Robot)(OBJ nil))')
-                        #print(prim+'((ACTOR Robot)(OBJ nil))')
-                    else:
-                        if pron_list_sen[-1] in ["a", "an", "the"]:
-                            dependencies_list.append(prim+'((ACTOR Robot)(OBJ nil))')
-                            #print(prim+'((ACTOR Robot)(OBJ nil))')
-                        else:
-                            obj = pron_list_sen[-1]
-                            dependencies_list.append(prim+'((ACTOR Robot)(OBJ '+obj+'))')
-                            #print(prim+'((ACTOR Robot)(OBJ '+obj+'))')
-                
+                    obj = "nil"
+                if len(pron_list_sen) != 0 and pron_list_sen[-1] not in ["a", "an", "the"]:
+                    obj = pron_list_sen[-1]
+                    dependencies_list.append(prim+'((ACTOR Robot)(OBJ '+obj+'))')
+                    #print(prim+'((ACTOR Robot)(OBJ '+obj+'))')
+                else:
+                    dependencies_list.append(prim+'((ACTOR Robot)(OBJ nil))')
+                    #print(prim+'((ACTOR Robot)(OBJ nil))')
+                    
                 #==============================RELEASE=======================================
                 elif prim == "RELEASE":
                     #print(pron_list_sen)
