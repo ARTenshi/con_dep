@@ -2,9 +2,7 @@
 import numpy as np
 import spacy
 import rospy
-
 import traceback
-
 import os
 
 CD_structures = { "go" : "PTRANS",
@@ -12,24 +10,28 @@ CD_structures = { "go" : "PTRANS",
 "walk" : "PTRANS",
 "lead" : "PTRANS",
 "guide" : "PTRANS",
-#to somewhere
+#===================
 "bring" : "ATRANS",
 "give" : "ATRANS",
 "deliver" : "ATRANS",
-#the object #to a person
+#===================
 "take" : "GRAB",
 "grasp" : "GRAB",
+#===================
 "find" : "ATTEND",
 "look" : "ATTEND",
-#someone/at something
+"meet" : "ATTEND",
+#===================
 "deposit" : "RELEASE",
-#something, somewhere
+#===================
 "open" : "PROPEL",
 "close" : "PROPEL",
-#something
+#===================
 "tell" : "SPEAK",
 "say" : "SPEAK",
+#===================
 "remind" : "MTRANS",
+#===================
 "follow" : "FTRANS",
     }
 
