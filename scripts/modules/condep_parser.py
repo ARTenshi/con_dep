@@ -193,9 +193,8 @@ def CondepParser(text):
                         #print(location)
                         dependencies_list.append(prim+'((ACTOR Robot)(OBJ '+person+')(FROM '+person+' place)(TO '+location+'))')
                         #print(prim+'((ACTOR Robot)(OBJ '+person+')(FROM '+person+' place)(TO '+location+'))')
-
+                    
                     else:
-
                         if check_prim != 0 and pron_list_sen[-1] != "the":
                             l = len(pos_list_sen1[-1])
                             sn = pron_list_sen[-1].split()
@@ -255,7 +254,7 @@ def CondepParser(text):
                                                 obj = "nil"
                                 dependencies_list.append(prim+'((ACTOR Robot)(OBJ '+obj+')(FROM '+obj+' place)(TO '+place+'))')
                                 #print(prim+'((ACTOR Robot)(OBJ '+obj+')(FROM '+obj+' place)(TO '+place+'))')	
-				
+                    
                     else:
                         dependencies_list.append(prim+'((ACTOR Robot)(OBJ nil)(TO nil))') #There is no person and no obj
                         #print(prim+'((ACTOR Robot)(OBJ nil)(TO nil))')
@@ -314,7 +313,7 @@ def CondepParser(text):
                         obj = "nil"
                     else:
                         obj = "nil"
-
+                    
                     #print("place: ", place)
                     #print("object: ", obj)
                     dependencies_list.append(prim+'((ACTOR Robot)(OBJ '+obj+')(TO '+place+'))')
@@ -384,7 +383,7 @@ def CondepParser(text):
                             sent = sent.strip()
                             dependencies_list.append(prim+'((MSG '+sent+')(TO nil))')
                             #print(prim+'((MSG '+sent+')(TO nil))')
-
+                    
                     elif verb_list_sen[-1] == "say" and len(text_list_sen)<=1:
                         #say [something]
                         sent = "nil"
@@ -395,7 +394,7 @@ def CondepParser(text):
                         sent = sent.strip()
                         dependencies_list.append(prim+'((MSG '+sent+'))')
                         #print(prim+'((MSG '+sent+'))')		    
-			    
+                
                 #==============================MTRANS=======================================
                 elif prim == "MTRANS":
                     #(MTRANS (ACTOR Robot)(MSG sentence)(FROM source)(TO goal))
@@ -408,7 +407,7 @@ def CondepParser(text):
                         if text_list_sen[w] == "to":
                             ind2 = w
                             break
-
+                    
                     if pos_list1[w-1] == "PRON" or pos_list1[w-1] == "PROPN":
                         goal = text_list_sen[w-1]
                         source = "robot"
@@ -425,12 +424,12 @@ def CondepParser(text):
                     sent2 = sent.strip()
                     dependencies_list.append(prim+'((ACTOR Robot)(MSG '+sent2+')(FROM '+source+')(TO '+goal+'))')
                     #print(prim+'((ACTOR Robot)(MSG '+sent2+')(FROM '+source+')(TO '+goal+'))')
-
+                
                 #============================FTRANS==FOLLOW=================================
                 elif prim == "FTRANS":
                     #print(text_list_sen)
                     #print(pron_list_sen)
-
+                    
                     if len(pron_list_sen) != 0 and pron_list_sen[-1] not in ["an", "a", "the"]:
                         obj = pron_list_sen[-1]
                         dependencies_list.append(prim+'((ACTOR Robot)(OBJ '+ obj+'))')
