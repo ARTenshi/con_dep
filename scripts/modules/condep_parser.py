@@ -29,7 +29,7 @@ CD_structures = { "go" : "PTRANS",
 #something
 "tell" : "SPEAK",
 "say" : "SPEAK",
-"remind" : "MTRANS", #<------- remind
+"remind" : "MTRANS",
 "follow" : "FTRANS",
     }
 
@@ -167,7 +167,7 @@ def CondepParser(text):
                 verb_list_sen = [token.lemma_ for token in doc1 if token.pos_ == "VERB"]
                 flag1 = 0
                 for rem in verb_list_sen:
-                    if rem == "remind": #<------------- remind
+                    if rem == "remind": 
                         flag1 = 1
                         break
                 
@@ -177,6 +177,23 @@ def CondepParser(text):
                 
                 #==============================PTRANS=======================================
                 if prim == 'PTRANS':
+                    if verb_list_sen[-1] in ["guide", "lead"]:
+                    person = "nil"
+                    for pron in range(len(pron_list_sen)):
+                        if pos_list_sen1[pron][-1] == 'PROPN' or pron_list[pron] == "me":
+                            person=pron_list_sen[pron]
+                            pron_list_sen = np.delete(pron_list_sen, pron)
+                            break
+                    #print(person)
+                    location = "nil"
+                    if len(pron_list_sen)!=0 and pron_list_sen[-1] not in ["an", "a", "the"]:
+                        location=pron_list_sen[-1]
+                    #print(location)
+                    dependencies_list.append(prim+'((ACTOR Robot)(OBJ '+person+')(FROM '+person+' place)(TO '+location+'))')
+                    #print(prim+'((ACTOR Robot)(OBJ '+person+')(FROM '+person+' place)(TO '+location+'))')
+
+                else:
+
                     if check_prim != 0 and pron_list_sen[-1] != "the":
                         l = len(pos_list_sen1[-1])
                         sn = pron_list_sen[-1].split()
