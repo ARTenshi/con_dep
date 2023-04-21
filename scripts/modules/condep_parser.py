@@ -62,12 +62,12 @@ def CondepParser(text):
         os.system("python -m spacy download en_core_web_sm")
         nlp = spacy.load("en_core_web_sm")
 
-    initial_doc = nlp(frase)
-    initial_text = [token.text for token in initial_doc]
-
-    verbs = ["Follow", "Meet", "Find"] 
-    for x in initial_text:
-        if x in verbs:
+    #initial_doc = nlp(text)
+    #initial_text = [token.text for token in initial_doc]
+    res = text.split()
+    verbs = ["follow", "meet", "find"] 
+    for x in res:
+        if x.lower() in verbs:
             text = text.replace(x, x.lower())
     
     doc = nlp(text)
