@@ -65,7 +65,7 @@ def CondepParser(text):
     #initial_doc = nlp(text)
     #initial_text = [token.text for token in initial_doc]
     res = text.split()
-    verbs = ["follow", "meet", "find"] 
+    verbs = ["follow", "meet", "find", "look", "lead", "guide", "tell", "bring", "deliver"] 
     for x in res:
         if x.lower() in verbs:
             text = text.replace(x, x.lower())
