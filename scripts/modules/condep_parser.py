@@ -199,8 +199,13 @@ def CondepParser(text):
                         chop_noun3 = ex.split()
                         len_noun4 = len(chop_noun3)
                         f_noun4 = chop_noun3[-1]
-                        idx5 = text_list_sen.index(f_noun4)
-                        idx6 = idx5-len_noun4
+                        if f_noun4 == "room":
+                            f_noun4 = chop_noun3[-2]
+                            idx5 = text_list_sen.index(f_noun4)
+                            idx6 = idx5-len_noun4+1
+                        else:
+                            idx5 = text_list_sen.index(f_noun4)
+                            idx6 = idx5-len_noun4
                         if text_list_sen[idx6] == "to" and ex not in ["the", "a", "an"]:
                             loc2 = ex
                             pron_list_sen.remove(ex)
@@ -210,8 +215,13 @@ def CondepParser(text):
                         chop_noun3 = ex.split()
                         len_noun4 = len(chop_noun3)
                         f_noun4 = chop_noun3[-1]
-                        idx5 = text_list_sen.index(f_noun4)
-                        idx6 = idx5-len_noun4
+                        if f_noun4 == "room":
+                            f_noun4 = chop_noun3[-2]
+                            idx5 = text_list_sen.index(f_noun4)
+                            idx6 = idx5-len_noun4+1
+                        else:
+                            idx5 = text_list_sen.index(f_noun4)
+                            idx6 = idx5-len_noun4
                         if text_list_sen[idx6] == "from" and ex not in ["the", "a", "an"]:
                             loc1 = ex
                             pron_list_sen.remove(ex)
@@ -466,8 +476,13 @@ def CondepParser(text):
                                     chop_noun3 = ex.split()
                                     len_noun4 = len(chop_noun3)
                                     f_noun4 = chop_noun3[-1]
-                                    idx5 = text_list_sen.index(f_noun4)
-                                    idx6 = idx5-len_noun4
+                                    if f_noun4 == "room":
+                                        f_noun4 = chop_noun3[-2]
+                                        idx5 = text_list_sen.index(f_noun4)
+                                        idx6 = idx5-len_noun4+1
+                                    else:
+                                        idx5 = text_list_sen.index(f_noun4)
+                                        idx6 = idx5-len_noun4
                                     #print(idx6)
                                     if text_list_sen[idx6] == "to":
                                         loc2 = ex
@@ -478,8 +493,13 @@ def CondepParser(text):
                                     chop_noun3 = ex.split()
                                     len_noun4 = len(chop_noun3)
                                     f_noun4 = chop_noun3[-1]
-                                    idx5 = text_list_sen.index(f_noun4)
-                                    idx6 = idx5-len_noun4
+                                    if f_noun4 == "room":
+                                        f_noun4 = chop_noun3[-2]
+                                        idx5 = text_list_sen.index(f_noun4)
+                                        idx6 = idx5-len_noun4+1
+                                    else:
+                                        idx5 = text_list_sen.index(f_noun4)
+                                        idx6 = idx5-len_noun4
                                     #print(idx6)
                                     if text_list_sen[idx6] == "from":
                                         loc1 = ex
