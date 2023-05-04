@@ -174,12 +174,12 @@ def CondepParser(text):
                 
                 check_prim = len(pron_list_sen)
                 
-                verb_list_sen = [token.lemma_ for token in doc1 if token.pos_ == "VERB"]
+                """verb_list_sen = [token.lemma_ for token in doc1 if token.pos_ == "VERB"]
                 flag1 = 0
                 for rem in verb_list_sen:
                     if rem == "remind": 
                         flag1 = 1
-                        break
+                        break"""
                 
                 print("=====================================================================")
                 print("                    CONCEPTUAL DEPENDENCIES                          ")
@@ -422,7 +422,7 @@ def CondepParser(text):
                                 #print(prim+'((MSG nil)(TO '+person+'))')
                         else:
                             sent = sen.replace(text_list_sen[0] , "")
-                            sent = sent.strip()
+                            #sent = sent.strip() #<------------------ O.o?
                             dependencies_list.append(prim+'((MSG '+sent+')(TO nil))')
                             #print(prim+'((MSG '+sent+')(TO nil))')
                     
