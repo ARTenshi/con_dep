@@ -152,7 +152,7 @@ def CondepParser(text):
                 #                          VERB OR QUESTION?                             
                 #========================================================================
                 
-                verb_list_sen = [token.lemma_ for token in doc1 if token.pos_ == "VERB"]
+                verb_list_sen = [token.lemma_ for token in doc1 if (token.pos_ == "VERB" and token.lemma_ in CD_structures)]
                 flag1 = 0
                 for rem in verb_list_sen:
                     if rem == "remind":
