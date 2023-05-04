@@ -122,9 +122,9 @@ def CondepParser(text):
                         ind = poc
                 txt = txt.replace(pron_list[acus_list[f]],pron_list[pers_list[ind]])
             
-            txt = txt.replace(", and", ". ")
-            txt = txt.replace(" and", ". ")
-            txt = txt.replace(",", ". ")
+            txt = txt.replace(", and", ".")
+            txt = txt.replace(" and", ".")
+            txt = txt.replace(",", ".")
             
             doc = nlp(txt)
             assert doc.has_annotation("SENT_START")
