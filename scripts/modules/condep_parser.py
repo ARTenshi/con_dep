@@ -366,25 +366,7 @@ def CondepParser(text):
                             obj = pron_list_sen[-1]
                             dependencies_list.append(prim+'((ACTION '+action+')((ACTOR Robot)(OBJ '+obj+'))')
                             #print(prim+'((ACTION '+action+')((ACTOR Robot)(OBJ '+obj+'))')
-                
-                #==============================QTRANS=======================================
-                elif prim == "QTRANS":
-                    for qsen in text_list_sen:
-                        qsen = qsen.lower()
-                        if qsen in ["where", "what", "who"]:
-                            question = qsen
-                            #print(question)
-                    if len(pron_list_sen) == 0:
-                        dependencies_list.append(prim+'((OBJ nil)(QUESTION '+question+'))')
-                        #print(prim+'((OBJ nil)(OBJ'+question+'))')
-                    elif len(pron_list_sen) != 0 and pron_list_sen[-1] in ["a", "an", "the"]:
-                        dependencies_list.append(prim+'((OBJ nil)(QUESTION '+question+'))')
-                        #print(prim+'((OBJ nil)(OBJ '+question+'))') 
-                    else:
-                        obj = pron_list_sen[-1]
-                        dependencies_list.append(prim+'((OBJ '+obj+')(QUESTION '+question+'))')
-                        #print(prim+'((OBJ '+obj+')(QUESTION '+question+'))')
-                
+                                
                 #==============================SPEAK=======================================
                 #tell [to someone] [something]
                 #tell hello? -> not correct
@@ -447,6 +429,24 @@ def CondepParser(text):
                         dependencies_list.append(prim+'((MSG '+sent+')(TO '+person+')')
                         #print(prim+'((MSG '+sent+'))')		    
                 
+                #==============================QTRANS=======================================
+                elif prim == "QTRANS":
+                    for qsen in text_list_sen:
+                        qsen = qsen.lower()
+                        if qsen in ["where", "what", "who"]:
+                            question = qsen
+                            #print(question)
+                    if len(pron_list_sen) == 0:
+                        dependencies_list.append(prim+'((OBJ nil)(QUESTION '+question+'))')
+                        #print(prim+'((OBJ nil)(OBJ'+question+'))')
+                    elif len(pron_list_sen) != 0 and pron_list_sen[-1] in ["a", "an", "the"]:
+                        dependencies_list.append(prim+'((OBJ nil)(QUESTION '+question+'))')
+                        #print(prim+'((OBJ nil)(OBJ '+question+'))') 
+                    else:
+                        obj = pron_list_sen[-1]
+                        dependencies_list.append(prim+'((OBJ '+obj+')(QUESTION '+question+'))')
+                        #print(prim+'((OBJ '+obj+')(QUESTION '+question+'))')
+
                 #==============================MTRANS=======================================
                 elif prim == "MTRANS":
                     #(MTRANS (ACTOR Robot)(MSG sentence)(FROM source)(TO goal))
